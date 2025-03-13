@@ -1,0 +1,13 @@
+{{> header }}
+
+{{#if notelist.length}}
+    <ul>
+      {{#each notelist}}
+        <li>{{ key }}:
+          <a href="/notes/view?key={{ key }}">{{ title }}</a>
+        </li>
+      {{/each}}
+    </ul>
+{{/if}}
+
+{{> footer }}
