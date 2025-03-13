@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap", 
     textTransform: "none",
-    width: width * 0.4
+    
   },
   loginText: {
     fontSize:22,
