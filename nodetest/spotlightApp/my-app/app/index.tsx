@@ -1,16 +1,14 @@
-import { useAuth } from '@clerk/clerk-expo';
-import { Redirect } from 'expo-router';
-import { TouchableOpacity ,Text, View} from 'react-native';
-
+import { useAuth } from "@clerk/clerk-expo";
+import { Redirect } from "expo-router";
 
 export default function Index() {
-    const {signOut} = useAuth()
-    return (
-      <View >
-        <TouchableOpacity onPress={() => signOut()}>
-          <Text> Sign Out</Text>
-        </TouchableOpacity>
-      </View>
-    );
-}
+  const { isSignedIn } = useAuth();
 
+  // Redirect if not authenticated
+  if (isSignedIn === false) {
+    return <Redirect href="/(auth)/login" />;
+  }
+
+  // Redirect authenticated users to the main tabs
+  return <Redirect href="/(tabs)" />;
+}
