@@ -73,7 +73,8 @@ export const getFeedPost = query({
                 return {
                     ...post,
                     author:{
-                        _id:postsAuthor?.username,
+                        _id:postsAuthor?._id,
+                        username: postsAuthor?.username,
                         image:postsAuthor?.image
                     },
                     isLiked: !!like,
@@ -128,3 +129,44 @@ export const likePost = mutation({
         }
     }
 });
+
+export const deletePost = mutation({
+    args:{postId: v.id("posts")},
+    handler: async (ctx, args) => {
+        const currentUser = await getCurrentUser(ctx);
+
+        const post = await ctx.db.get(args.postId);
+
+        if(!post)throw new Error("post not found") ;
+
+        if(currentUser._id !== post.userId)throw new Error("Login to delete post");
+
+        //delete likes
+        const likes = await ctx.db.query("likes").withIndex("by_post",q=>q.eq("postId",args.postId)).collect();
+
+        for(const like of likes){
+            await ctx.db.delete(like._id);
+        }
+        //delete comments
+        const comments = await ctx.db.query("comments").withIndex("by_post",q=>q.eq("postId",args.postId)).collect();
+
+        for(const comment of comments){
+            await ctx.db.delete(comment._id);
+        }
+        //delete bookmarks
+        const bookmarks = await ctx.db.query("bookmarks").withIndex("by_post",q=>q.eq("postId",args.postId)).collect();
+
+        for(const bookmark of bookmarks){
+            await ctx.db.delete(bookmark._id);
+        }
+        
+        //delete image 
+        await ctx.storage.delete(post.storageId);
+        //delete post
+        await ctx.db.delete(args.postId);
+        //decrease post in user 
+        await ctx.db.patch(currentUser._id,{
+            posts:Math.max(0, (currentUser.posts || 1) - 1),
+        })
+    }
+})

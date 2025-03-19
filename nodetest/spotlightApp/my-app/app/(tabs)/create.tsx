@@ -129,7 +129,7 @@ export default function Create() {
   return (
     <KeyboardAvoidingView 
       behavior={Platform.OS === "android" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "android" ? 20 : 0}
+      keyboardVerticalOffset={Platform.OS === "android" ? 100 : 0}
     >
       <View style={styles.header}>
         <TouchableOpacity onPress={() => { setSelectedImage(null); setCaption(""); }}>

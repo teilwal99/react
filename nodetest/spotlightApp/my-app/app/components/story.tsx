@@ -11,7 +11,6 @@ import {
 import styles from "@/styles/feed.styles";
 import { Ionicons } from "@expo/vector-icons";
 
-// ✅ Move the type definition above the component
 export type StoryType = {
   id: string;
   username: string;

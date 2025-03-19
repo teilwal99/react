@@ -54,16 +54,14 @@ export default function Login(){
         <Image
             source={require("../../assets/images/Social interaction-bro.svg")}
             resizeMode="cover"
-        >
-
-        </Image>
+        />
     </View>
 
     {/*login*/}
     <View >
         <TouchableOpacity onPress={handleGoogleSignIn} activeOpacity={0.9} style={styles.loginGoogle}>
             <View style={styles.loginLogo}>
-                <Ionicons name='logo-google' size={20} color={"green"}></Ionicons>
+                <Ionicons name='logo-google' size={20} color={"green"} />
             </View>
             <Text style={styles.loginText} > Continue with google </Text>
         </TouchableOpacity>

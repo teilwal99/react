@@ -1,5 +1,7 @@
+import Bookmark from "@/app/(tabs)/bookmark";
 import { StyleSheet , Dimensions } from "react-native";
 import { View } from "react-native";
+import { Platform } from "react-native";
 
 const {width,height} = Dimensions.get("window");
 
@@ -136,6 +138,12 @@ const styles = StyleSheet.create({
     color:"grey",
     marginBottom:8
   },
+  modalContainer: {
+    backgroundColor: "black",
+    marginBottom: Platform.OS === "ios" ? 44 : 0,
+    flex: 1,
+    marginTop: Platform.OS === "ios" ? 44 : 0,
+  },
   modalHeader: {
     flexDirection: "row",
     alignItems: "center",
@@ -154,8 +162,9 @@ const styles = StyleSheet.create({
     flex:1
   },
   commentContainer:{
-    flexDirection:"row",
+    flexDirection: "row",
     paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor:"white",
   },
@@ -165,10 +174,20 @@ const styles = StyleSheet.create({
     borderRadius:16,
     marginRight:12,
   },
+  commentUsername: {
+    color: "white",
+    fontWeight: "500",
+    marginBottom: 4,
+  },
   commentText:{
     color:"white",
     fontSize:14,
     lineHeight:20
+  },
+  commentTime: {
+    color: "gray",
+    fontSize: 12,
+    marginTop: 4,
   },
   commentInput:{
     flexDirection: "row",
@@ -180,16 +199,33 @@ const styles = StyleSheet.create({
   },
   input:{
     flex:1,
-    color:"white",
+    color:"black",
     paddingHorizontal: 16,
     paddingVertical: 12,
     backgroundColor: "white",
     borderRadius:20,
     fontSize:14
   },
+  postButton: {
+    color: "green",
+    fontWeight: "600",
+    fontSize: 14,
+  },
+  postButtonDisabled: {
+    opacity: 0.5,
+  },
   centered:{
     justifyContent:"center",
     alignItems:"center"
+  },
+  bookmarkContainer:{
+    justifyContent: "space-between", // Ensures spacing between images
+    padding: 8,
+  },
+  imageBookmark:{
+    width: "48%", // Makes 2 columns fit within the screen
+    aspectRatio: 1, // Keeps images square
+    marginBottom: 8,
   }
 });
 
