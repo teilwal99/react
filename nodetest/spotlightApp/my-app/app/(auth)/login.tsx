@@ -4,6 +4,7 @@ import { useRouter } from "expo-router";
 import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { StyleSheet , Dimensions} from "react-native";
 import { useAuth } from "@clerk/clerk-expo";
+import styles from "@/styles/auth.styles";
 
 export default function Login(){
     const {startSSOFlow} = useSSO();
@@ -72,43 +73,3 @@ export default function Login(){
 
   </View>);
 }
-const {width, height} = Dimensions.get("window")
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20
-  },
-  brandSection: {
-    alignItems: "center",
-    margin: height * 0.12,
-  },
-  logoContainer: {
-    width:60,height:60,borderRadius:18,backgroundColor:"rgba(74,222,128,0.15)",justifyContent:"center",alignItems:"center",marginBottom:20
-  },
-  appName: {
-    fontSize:42,
-    textTransform:"uppercase",
-  },
-  tagLine: {
-    fontSize:22,
-    textAlign:"center",
-    marginTop:10
-  },
-  loginGoogle: {
-    display:"flex",
-    alignItems:"center",
-    justifyContent: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap", 
-    textTransform: "none",
-    
-  },
-  loginText: {
-    fontSize:22,
-  },
-  loginLogo: {
-    width:22,
-  },
-});

@@ -1,4 +1,5 @@
 import { StyleSheet , Dimensions } from "react-native";
+import { View } from "react-native";
 
 const {width,height} = Dimensions.get("window");
 
@@ -26,12 +27,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
   },
-  feedContainer: {
-    paddingVertical:12,
+  storiesContainer: {
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: "white",
   },
-  feedWrapper: {
+  storyWrapper: {
     alignItems:"center",
     marginHorizontal: 8,
     width:72,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   storyRing: {
     width:68,
     height:68,
-    borderRadis: 34,
+    borderRadius: 34,
     padding: 2,
     backgroundColor: "black",
     borderWidth:2,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   storyAvatar: {
     width:60,
     height:60,
-    borderRadis: 30,
+    borderRadius: 30,
     borderWidth:2,
     borderColor:"black",
   },
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     color:'white',
     textAlign:'center'
   },
-  post:{marginBottom:16},
+  post:{marginBottom:16,},
   postHeader:{
     flexDirection: "row",
     alignItems: "center",
@@ -70,22 +71,24 @@ const styles = StyleSheet.create({
   },
   postHeaderLeft:{
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center",alignSelf:"center"
   },
   postAvatar:{
     width:32,
     height:32,
     borderRadius:16,
     marginRight:8,
+    
   },
   postUsername:{
     fontSize:14,
     fontWeight:"600",
     color:"white"
+
   },
   postImage:{
     width:width,
-    height:height
+    height:width
   },
   postActions:{
     flexDirection: "row",

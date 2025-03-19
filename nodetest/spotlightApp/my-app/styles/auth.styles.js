@@ -30,17 +30,33 @@ const styles = StyleSheet.create({
     paddingVertical:12,
     borderBottomWidth: 1,
     borderBottomColor: "white",
+    height:300,
+
   },
+  imageContainer: {
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: height*0.6, 
+    marginBottom: 20,
+  },
+
   imageWrapper: {
-    alignItems:"center",
+    alignItems: "center",
     marginHorizontal: 8,
-    width:72,
+    width: "100%",
+    height: "100%", // ✅ This now works because the parent has a height
   },
-  imagePost: {
-    position: "absolute",
-    right: 10,
-    top: 10,
+
+  image: {
+    width: "100%", // ✅ Image takes full width
+    height: "100%", // ✅ Image takes full height
+    resizeMode: "cover", // ✅ Ensures it covers the container properly
   },
+
   textArea: {
     width: "90%",
     alignSelf: "center",
@@ -48,7 +64,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "gray",
     borderRadius: 8,
-    marginBottom: 20,
+    marginVertical: 20,
     minHeight: 120,
   },
   changeImageButt: {
@@ -60,6 +76,38 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     flexDirection: "row",
+  },
+ 
+  brandSection: {
+    alignItems: "center",
+    margin: height * 0.12,
+  },
+  logoContainer: {
+    width:60,height:60,borderRadius:18,backgroundColor:"rgba(74,222,128,0.15)",justifyContent:"center",alignItems:"center",marginBottom:20
+  },
+  appName: {
+    fontSize:42,
+    textTransform:"uppercase",
+  },
+  tagLine: {
+    fontSize:22,
+    textAlign:"center",
+    marginTop:10
+  },
+  loginGoogle: {
+    display:"flex",
+    alignItems:"center",
+    justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap", 
+    textTransform: "none",
+    
+  },
+  loginText: {
+    fontSize:22,
+  },
+  loginLogo: {
+    width:22,
   },
 });
 
