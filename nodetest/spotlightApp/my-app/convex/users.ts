@@ -61,3 +61,15 @@ export const getUserByClerkId= query({
         return user;
     }
 });
+
+export const updateProfile = mutation({
+    args:{
+        fullname:v.string(),
+        bio:v.optional(v.string()),
+    },
+    handler: async (ctx,args) => {
+        const user = await getCurrentUser(ctx);
+
+        await ctx.db.patch(user._id,{fullname:args.fullname,bio:args.bio})
+    }
+})
