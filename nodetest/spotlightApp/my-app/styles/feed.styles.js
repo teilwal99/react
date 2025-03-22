@@ -1,232 +1,239 @@
-import Bookmark from "@/app/(tabs)/bookmark";
 import { StyleSheet , Dimensions } from "react-native";
 import { View } from "react-native";
 import { Platform } from "react-native";
-
+const COLORS = {
+  background: "#000",
+  surface: "#e8eded",
+  primary: "green",
+  grey: "gray",
+  white: "#FFFFFF",
+};
 const {width,height} = Dimensions.get("window");
 
 const styles = StyleSheet.create({
-  text: { color: "green" },
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor:"black"
+    backgroundColor: COLORS.background,
   },
   header: {
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
-    width: "100%",
-    backgroundColor: "black",
-    padding: 12,
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: "white",
+    borderBottomColor: COLORS.surface,
   },
   headerTitle: {
-    fontFamily: "JetBrainMono-Medium",
     fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
+    fontFamily: "JetBrainsMono-Medium",
+    color: COLORS.primary,
   },
   storiesContainer: {
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: "white",
+    borderBottomColor: COLORS.surface,
   },
   storyWrapper: {
-    alignItems:"center",
+    alignItems: "center",
     marginHorizontal: 8,
-    width:72,
+    width: 72,
   },
   storyRing: {
-    width:68,
-    height:68,
+    width: 68,
+    height: 68,
     borderRadius: 34,
     padding: 2,
-    backgroundColor: "black",
-    borderWidth:2,
-    borderColor:"white",
-    marginBottom:4,
+    backgroundColor: COLORS.background,
+    borderWidth: 2,
+    borderColor: COLORS.primary,
+    marginBottom: 4,
   },
   noStory: {
-    borderColor:"gray",
+    borderColor: COLORS.grey,
   },
   storyAvatar: {
-    width:60,
-    height:60,
+    width: 60,
+    height: 60,
     borderRadius: 30,
-    borderWidth:2,
-    borderColor:"black",
+    borderWidth: 2,
+    borderColor: COLORS.background,
   },
-  storyUsername:{
-    fontSize:11,
-    color:'white',
-    textAlign:'center'
+  storyUsername: {
+    fontSize: 11,
+    color: COLORS.white,
+    textAlign: "center",
   },
-  post:{marginBottom:16,},
-  postHeader:{
+  post: {
+    marginBottom: 16,
+  },
+  postHeader: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    padding:12,
+    padding: 12,
   },
-  postHeaderLeft:{
-    flexDirection: "row",
-    alignItems: "center",alignSelf:"center"
-  },
-  postAvatar:{
-    width:32,
-    height:32,
-    borderRadius:16,
-    marginRight:8,
-    
-  },
-  postUsername:{
-    fontSize:14,
-    fontWeight:"600",
-    color:"white"
-
-  },
-  postImage:{
-    width:width,
-    height:width
-  },
-  postActions:{
+  postHeaderLeft: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  postAvatar: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    marginRight: 8,
+  },
+  postUsername: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: COLORS.white,
+  },
+  postImage: {
+    width: width,
+    height: width,
+  },
+  postActions: {
+    flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal:12,
-    paddingVertical:12,
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 12,
   },
-  postActionsLeft:{
+  postActionsLeft: {
     flexDirection: "row",
     alignItems: "center",
-    gap:16,
+    gap: 16,
   },
-  postInfo:{
-    paddingHorizontal:12
+  postInfo: {
+    paddingHorizontal: 12,
   },
-  likesText:{
-    fontSize:14,
-    fontWeight:"600",
-    color:"white"
+  likesText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: COLORS.white,
+    marginBottom: 6,
   },
-  captionContainer:{
-    flexDirection:"row",
-    flexWrap:"wrap",
-    marginBottom:6,
+  captionContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginBottom: 6,
   },
-  captionUsername:{
-    fontSize:14,
-    fontWeight:"600",
-    color:"white",
-    marginRight:6
+  captionUsername: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: COLORS.white,
+    marginRight: 6,
   },
-  captionText:{
-    fontSize:14,
-    color:"white",
-    flex:1
+  captionText: {
+    fontSize: 14,
+    color: COLORS.white,
+    flex: 1,
   },
-  commentsText:{
-    fontSize:14,
-    color:"grey",
-    marginBottom:4
+  commentsText: {
+    fontSize: 14,
+    color: COLORS.grey,
+    marginBottom: 4,
   },
-  timeAgo:{
-    fontSize:12,
-    color:"grey",
-    marginBottom:8
+  timeAgo: {
+    fontSize: 12,
+    color: COLORS.grey,
+    marginBottom: 8,
   },
   modalContainer: {
-    backgroundColor: "black",
+    backgroundColor: COLORS.background,
     marginBottom: Platform.OS === "ios" ? 44 : 0,
     flex: 1,
     marginTop: Platform.OS === "ios" ? 44 : 0,
   },
   modalHeader: {
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 16,
     height: 56,
     borderBottomWidth: 0.5,
-    borderBottomColor: "white",
+    borderBottomColor: COLORS.surface,
   },
-  modalTitle:{
-    fontSize:14,
-    fontWeight:"600",
-    color:"white"
+  modalTitle: {
+    color: COLORS.white,
+    fontSize: 16,
+    fontWeight: "600",
   },
-  commentsList:{
-    flex:1
+  commentsList: {
+    flex: 1,
   },
-  commentContainer:{
+  commentContainer: {
     flexDirection: "row",
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderBottomColor:"white",
+    borderBottomColor: COLORS.surface,
   },
-  commentAvatar:{
-    width:32,
-    height:32,
-    borderRadius:16,
-    marginRight:12,
+  commentAvatar: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    marginRight: 12,
+  },
+  commentContent: {
+    flex: 1,
   },
   commentUsername: {
-    color: "white",
+    color: COLORS.white,
     fontWeight: "500",
     marginBottom: 4,
   },
-  commentText:{
-    color:"white",
-    fontSize:14,
-    lineHeight:20
+  commentText: {
+    color: COLORS.white,
+    fontSize: 14,
+    lineHeight: 20,
   },
   commentTime: {
-    color: "gray",
+    color: COLORS.grey,
     fontSize: 12,
     marginTop: 4,
   },
-  commentInput:{
+  commentInput: {
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "white",
+    borderTopWidth: 0.5,
+    borderTopColor: COLORS.surface,
+    backgroundColor: COLORS.background,
   },
-  input:{
-    flex:1,
-    color:"black",
+  input: {
+    flex: 1,
+    color: COLORS.background,
+    paddingVertical: 8,
     paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: "white",
-    borderRadius:20,
-    fontSize:14
+    marginRight: 12,
+    backgroundColor: COLORS.surface,
+    borderRadius: 20,
+    fontSize: 14,
   },
   postButton: {
-    color: "green",
+    color: COLORS.primary,
     fontWeight: "600",
     fontSize: 14,
   },
   postButtonDisabled: {
     opacity: 0.5,
   },
-  centered:{
-    justifyContent:"center",
-    alignItems:"center"
+  centered: {
+    justifyContent: "center",
+    alignItems: "center",
   },
-  bookmarkContainer:{
-    justifyContent: "space-between", // Ensures spacing between images
-    padding: 8,
+  
+  bookmarkContainer: {
+    width:"100%",
   },
-  imageBookmark:{
-    width: "48%", // Makes 2 columns fit within the screen
-    aspectRatio: 1, // Keeps images square
-    marginBottom: 8,
-  }
+  imageBookmark: {
+    width: "50%",
+    padding: 20,
+    aspectRatio: 1,
+    borderRadius: 6,
+  },
 });
 
 export default styles; // ✅ Ensure styles are exported properly

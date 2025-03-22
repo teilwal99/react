@@ -34,8 +34,9 @@ type ProsPosts = {
 
 
 export default function Post ({post}: ProsPosts) {
-  
+  console.log("post",post);
   const [isLike,setIsLiked] = useState(post.isLiked);
+ 
   const [likesCount,setLikesCount] = useState(post.likes);
   const [commentsCount,setCommentsCount] = useState(post.comments);
   const [showComments,setShowComments] = useState(false);
@@ -115,7 +116,7 @@ export default function Post ({post}: ProsPosts) {
     <View style={styles.postActions}> 
       <View style={styles.postActionsLeft}>
         <TouchableOpacity onPress={handleLike}>
-          <Ionicons name={isLike?"heart":"heart-outline"} size={24} color={isLike?"green":"white"}  />
+          <Ionicons name={isLike ?"heart":"heart-outline"} size={24} color={isLike?"green":"white"}  />
         </TouchableOpacity> 
         <TouchableOpacity onPress={()=>setShowComments(true)}>
           <Ionicons name="chatbubble-outline" size={22} color="white"  />

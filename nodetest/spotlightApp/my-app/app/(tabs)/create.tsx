@@ -115,7 +115,7 @@ export default function Create() {
           <TouchableOpacity onPress={() => { setIsSharing(false); router.back(); }}>
             <Ionicons size={28} name="arrow-back" color={Colors.light.tint} />
           </TouchableOpacity>
-          <Text style={styles.text}> New Post </Text>
+          <Text style={styles.headerTitle}> New Post </Text>
           <View style={{ width: 28 }}></View>
         </View>
         <TouchableOpacity onPress={pickImage} style={styles.imageContainer}>

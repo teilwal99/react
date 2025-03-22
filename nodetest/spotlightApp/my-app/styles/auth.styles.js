@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor:"white"
+    backgroundColor:"black"
   },
   header: {
     flexDirection: "row",
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     fontFamily: "JetBrainMono-Medium",
     fontSize: 24,
     fontWeight: "bold",
-    color: "white",
+    color: "green",
   },
   imageContainer: {
     paddingVertical:12,

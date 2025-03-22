@@ -23,7 +23,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <View  style={styles.header}>
-        <Text style={styles.text}> spotlight </Text>
+        <Text style={styles.headerTitle}> spotlight </Text>
         <TouchableOpacity onPress={() => signOut()}>  
           <Ionicons size={24} name="log-out-outline" color={"green"} />  
         </TouchableOpacity>
@@ -80,4 +80,3 @@ const NoPostsFound = () => {
     <Text style={{color:"white"}}>No posts found</Text>
   </View>
 };
-

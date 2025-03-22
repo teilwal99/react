@@ -43,7 +43,7 @@ export default function Login(){
   <View style={styles.container}>
     <View style={styles.brandSection}>
         <View style={styles.logoContainer}>
-            <Ionicons name='leaf' size={32} color={"green"}></Ionicons>
+            <Ionicons name='leaf' size={32} color={"green"} />
         </View>    
         <Text style={styles.appName} > spotlight </Text>
         <Text style={styles.tagLine} > something </Text>

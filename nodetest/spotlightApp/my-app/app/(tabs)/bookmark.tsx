@@ -21,6 +21,7 @@ export default function Bookmark(){
     </View>
     <FlatList
       data={bookmarkedPosts}
+      style={{width: "100%"}}
       keyExtractor={(item) => item._id}
       numColumns={2} // Creates a 2-column grid
       columnWrapperStyle={styles.bookmarkContainer} // Ensures proper spacing between columns
@@ -30,7 +31,7 @@ export default function Bookmark(){
           style={styles.imageBookmark}
           contentFit="cover"
           transition={200}
-          cachePolicy="memory-disk"
+          cachePolicy="none"
         />
       )}
     />
